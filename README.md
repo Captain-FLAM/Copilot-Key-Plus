@@ -35,6 +35,9 @@ Il m'a coûté des mois de bidouille et des nuits à décortiquer des salves de 
 Si ça vous a fait du bien, un petit don **(en cliquant sur la tasse)** ferait aussi du bien à celui qui l'a écrit :  
 [![ko-fi](images/ko-fi.png)](https://ko-fi.com/captain_flam)
 
+Et si vous souhaitez mettre un commentaire sur votre satisfaction *(ça serait gentil)*, faites un don **même de 1 €** :  
+Sur Ko-Fi, par sécurité, seul les donateurs sont autorisés à laisser un commentaire. ❤️ 
+
 ---
 
 ## 📖 Mon histoire

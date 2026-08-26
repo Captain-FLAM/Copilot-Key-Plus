@@ -35,6 +35,10 @@ It has cost me months of tinkering and countless nights deciphering bursts of ke
 If it has made your life a little easier, a small donation **(clicking on the cup)** could also make the person who wrote it feel a little better :  
 [![ko-fi](images/ko-fi.png)](https://ko-fi.com/captain_flam)
 
+And if you'd like to leave a comment about your experience *(that would be very kind of you)*, please consider making a donation — **even just $ 1**:
+
+On Ko-fi, for security reasons, only donors are allowed to leave comments. ❤️
+
 ---
 
 ## 📖 My story
