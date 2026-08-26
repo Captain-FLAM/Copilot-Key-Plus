@@ -71,6 +71,8 @@ As a bonus, as long as the Copilot key is held down, the arrow keys turn into **
 
 **Copilot Key+** replaces that fumbling by driving the keyboard at software level, with no firmware ever needing to be modified: Copilot becomes the **MAGIC key** that was missing.
 
+### Want to know more? [Read the wiki](/Captain-FLAM/Copilot-Key-Plus/wiki)
+
 ---
 
 # ⌨️ My Keyboard, My Rules!!

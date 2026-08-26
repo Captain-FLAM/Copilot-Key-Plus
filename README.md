@@ -71,6 +71,8 @@ En bonus, tant que la touche Copilot est maintenue enfoncée, les flèches direc
 
 **Copilot Key+** remplace cette manipulation en pilotant le clavier au niveau logiciel, sans qu'aucun firmware n'ait besoin d'être modifié : Copilot devient la **touche MAGIQUE** qui manquait.
 
+### Vous voulez en savoir plus ? [Lisez le wiki](/Captain-FLAM/Copilot-Key-Plus/wiki)
+
 ---
 
 # ⌨️ Mon clavier, mes règles !!
