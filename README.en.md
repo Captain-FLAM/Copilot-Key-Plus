@@ -1,6 +1,6 @@
 ﻿# <sub>![](images/Copilot_48x48.png)</sub> Copilot Key+
 
-#### 🇫🇷 [Version en français](README.md)
+### 🇫🇷 [Version en français](README.md)
 
 **Copilot Key+** intercepts the `Copilot` key and gives it back the behavior of a right **`CTRL`** key (or the `Context menu` key, or no action at all - your choice).
 
@@ -95,7 +95,7 @@ Once the files are copied, a dedicated screen offers to launch configuration: it
 
 To cleanly stop the resident instance, without going through Task Manager, use the **Quit Copilot Key+** shortcut in the Start menu (or `Copilot_Key+.exe -quit` from its install folder).
 
-To uninstall, use the **Uninstall Copilot Key+** shortcut in the Start menu or the dedicated button in *Installed apps* (Windows Settings): both relaunch the installer, which detects the existing installation and offers to **repair** or **uninstall** it instead of starting over. The installer copies itself into the install folder at the end of the process, so there's no need to keep the downloaded file around - there's no separate file for uninstalling.
+To uninstall, use the dedicated button in *Installed apps* (Windows Settings): it relaunchs the installer, which detects the existing installation and offers to **repair** or **uninstall** it instead of starting over. The installer copies itself into the install folder at the end of the process, so there's no need to keep the downloaded file around - there's no separate file for uninstalling.
 
 > ⚠️ **Dedicated hardware Copilot key (untested)**: some very recent keyboards (Windows 11 23H2 and later) have a **dedicated hardware** Copilot key, distinct from the classic key burst (`Win+C`, `Win+Shift+F23`, etc.). This case is handled as an automatic fallback during setup, but I haven't had the chance to test it on a keyboard with this key. If `-config` loops on "No key detected", or if it doesn't behave as expected on this kind of keyboard, please open an issue on the repo.
 

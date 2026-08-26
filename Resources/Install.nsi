@@ -59,6 +59,7 @@ RequestExecutionLevel user
 SetCompressor /SOLID lzma
 Unicode true
 ManifestDPIAware true
+ShowInstDetails show
 
 VIProductVersion "${MyAppVersionFull}"
 VIFileVersion "${MyAppVersionFull}"
@@ -74,7 +75,6 @@ Page custom MaintenancePageCreate MaintenancePageLeave
 !insertmacro MUI_PAGE_COMPONENTS
 Page custom SummaryPageCreate SummaryPageLeave
 !insertmacro MUI_PAGE_INSTFILES
-Page custom ConfigPageCreate ConfigPageLeave
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
@@ -112,17 +112,6 @@ LangString LnkQuit ${LANG_FRENCH} "3 - Arrêter ${MyAppName}"
 LangString LnkQuit ${LANG_ENGLISH} "3 - Quit ${MyAppName}"
 LangString LnkUninstall ${LANG_FRENCH} "4 - Désinstaller ${MyAppName}"
 LangString LnkUninstall ${LANG_ENGLISH} "4 - Uninstall ${MyAppName}"
-
-LangString ConfigPageTitle ${LANG_FRENCH} "Configuration"
-LangString ConfigPageSubtitle ${LANG_FRENCH} "Choisissez la touche Copilot et les réglages de ${MyAppName}."
-LangString ConfigPageTitle ${LANG_ENGLISH} "Configuration"
-LangString ConfigPageSubtitle ${LANG_ENGLISH} "Choose the Copilot key and the settings for ${MyAppName}."
-
-LangString ConfigPageText ${LANG_FRENCH} "L'installation est terminée. Cliquez sur le bouton ci-dessous pour capturer la touche Copilot et régler le mode d'utilisation."
-LangString ConfigPageText ${LANG_ENGLISH} "Setup is complete. Click the button below to capture the Copilot key and configure how it behaves."
-
-LangString ConfigPageButton ${LANG_FRENCH} "Configurer ${MyAppName} maintenant"
-LangString ConfigPageButton ${LANG_ENGLISH} "Configure ${MyAppName} now"
 
 LangString SummaryPageTitle ${LANG_FRENCH} "Prêt à installer"
 LangString SummaryPageTitle ${LANG_ENGLISH} "Ready to Install"
@@ -218,6 +207,12 @@ Section "-Programme" SecMain
   ${If} "$EXEPATH" != "$INSTDIR\${MyAppInstallerName}"
     CopyFiles /SILENT "$EXEPATH" "$INSTDIR\${MyAppInstallerName}"
   ${EndIf}
+
+  ; Lance directement la capture de la touche Copilot et la configuration,
+  ; sans page intermédiaire à bouton : RunConfig() (Sources/CopilotKey.c)
+  ; gère seul l'arrêt d'une éventuelle instance résidente, la capture et la
+  ; relance.
+  Exec '"$INSTDIR\${MyAppExeName}" -config'
 SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -294,33 +289,6 @@ Function MaintenanceUninstallClick
 FunctionEnd
 
 Function MaintenancePageLeave
-FunctionEnd
-
-Var ConfigButton
-
-Function ConfigPageCreate
-  !insertmacro MUI_HEADER_TEXT "$(ConfigPageTitle)" "$(ConfigPageSubtitle)"
-  nsDialogs::Create 1018
-  Pop $0
-
-  ${NSD_CreateLabel} 0 30u 100% 24u "$(ConfigPageText)"
-  Pop $0
-
-  ${NSD_CreateButton} 30% 80u 40% 15u "$(ConfigPageButton)"
-  Pop $ConfigButton
-  ${NSD_OnClick} $ConfigButton ConfigButtonClick
-
-  nsDialogs::Show
-FunctionEnd
-
-Function ConfigButtonClick
-  ; RunConfig() (Sources/CopilotKey.c) gère seul l'arrêt de l'instance
-  ; résidente, la capture et la relance : pas besoin de reproduire cette
-  ; séquence ici.
-  Exec '"$INSTDIR\${MyAppExeName}" -config'
-FunctionEnd
-
-Function ConfigPageLeave
 FunctionEnd
 
 Function SummaryPageCreate

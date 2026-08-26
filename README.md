@@ -1,6 +1,6 @@
 # <sub>![](images/Copilot_48x48.png)</sub> Copilot Key+
 
-#### 🇬🇧 [Read this in English](README.en.md)
+### 🇬🇧 [Read this in English](README.en.md)
 
 **Copilot Key+** intercepte la touche `Copilot` et lui rend le comportement de la touche **`CTRL` droit** (ou `Menu contextuel`, ou sans action... au choix).
 
@@ -95,7 +95,7 @@ Une fois les fichiers copiés, un écran dédié propose de lancer la configurat
 
 Pour arrêter proprement l'instance résidente, sans passer par le Gestionnaire des tâches, utilisez le raccourci **Quitter Copilot Key+** du menu Démarrer (ou `Copilot_Key+.exe -quit` depuis son dossier d'installation).
 
-Pour désinstaller, utilisez le raccourci **Désinstaller Copilot Key+** du menu Démarrer ou le bouton dédié dans *Applications installées* (Paramètres Windows) : les deux relancent l'installateur, qui détecte l'installation existante et propose alors de la **réparer** ou de la **désinstaller**, plutôt que de repartir de zéro. L'installateur se copie lui-même dans le dossier d'installation à la fin du processus, donc pas besoin de conserver le fichier téléchargé - il n'y a pas de fichier séparé pour la désinstallation.
+Pour désinstaller, utilisez le bouton dédié dans *Applications installées* (Paramètres Windows) : cela relance l'installateur, qui détecte l'installation existante et propose alors de la **réparer** ou de la **désinstaller**, plutôt que de repartir de zéro. L'installateur se copie lui-même dans le dossier d'installation à la fin du processus, donc pas besoin de conserver le fichier téléchargé - il n'y a pas de fichier séparé pour la désinstallation.
 
 > ⚠️ **Touche Copilot matérielle dédiée (non testé)** : certains claviers très récents (Windows 11 23H2 et plus) embarquent une touche Copilot **matérielle dédiée**, distincte de la salve de touches classique (`Win+C`, `Win+Maj+F23`, etc.). Ce cas est géré en repli automatique lors de l'installation, mais je n'ai pas eu l'occasion de le tester sur un clavier équipé de cette touche. Si `-config` tourne en boucle sur "Aucune touche détectée", ou si le comportement n'est pas celui attendu sur ce type de clavier, n'hésitez pas à ouvrir une issue sur le dépôt.
 
