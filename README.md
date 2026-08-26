@@ -6,6 +6,8 @@
 
 En bonus, il restitue aux PC portables les touches `Début` / `Fin` / `Page Haut` / `Page Bas` et libère ainsi l'accès au pavé numérique (chiffres).
 
+Et ça fonctionne aussi (en théorie) avec les derniers PC qui utilisent la touche dédiée `HID` recommandée par Microsoft.
+
 ### 🛡️ Faux positifs antivirus sur VirusTotal (2 sur 69) ?
 
 > **C'est normal** : ça intercepte les touches du clavier... (🔒)
@@ -19,7 +21,7 @@ En bonus, il restitue aux PC portables les touches `Début` / `Fin` / `Page Haut
 
 #### En attendant **67 autres** (Kaspersky, Norton, McAfee, etc...) le considèrent comme n'étant **PAS** un virus !!
 
-[Virus Total ➡️](https://www.virustotal.com/gui/file/6ceaab5f6fe365a5f1b6785c02ce30e62d2ecaccbc5a26a235ed65e706d75faa)
+[Virus Total ➡️](https://www.virustotal.com/gui/file/91c82ec6a6c2960c631e42a9956adae7c625397764af196095ab4e6025cc924c)
 
 Tout le code est ici, dans ce dépôt GitHub → Compilez-le vous-même : **Fin de polémique !**
 
@@ -71,7 +73,7 @@ En bonus, tant que la touche Copilot est maintenue enfoncée, les flèches direc
 
 **Copilot Key+** remplace cette manipulation en pilotant le clavier au niveau logiciel, sans qu'aucun firmware n'ait besoin d'être modifié : Copilot devient la **touche MAGIQUE** qui manquait.
 
-### Vous voulez en savoir plus ? [Lisez le wiki](/Captain-FLAM/Copilot-Key-Plus/wiki)
+### Vous voulez en savoir plus ? [Lisez le wiki](https://github.com/Captain-FLAM/Copilot-Key-Plus/wiki)
 
 ---
 
@@ -91,7 +93,7 @@ Alors si votre clavier vous résiste lui aussi depuis que quelqu'un, quelque par
 
 ## 📥 Installation
 
-Copilot Key+ s'installe avec 📥 **[`Copilot Key+ - Install.exe`](https://github.com/Captain-FLAM/Copilot-Key-Plus/releases/latest/download/Copilot%20Key%2B%20-%20Install.exe)** (dernière release du dépôt) : choix de la langue, licence, dossier de destination (directement dans votre dossier utilisateur, `%UserProfile%`, par défaut - aucun droit administrateur requis), puis une case à cocher pour activer ou non le démarrage automatique avec Windows (clé de registre `Run`, cochée par défaut).
+Copilot Key+ s'installe avec 📥 **[`Copilot_Key+_Install.exe`](https://github.com/Captain-FLAM/Copilot-Key-Plus/releases/latest/download/Copilot_Key+_Install.exe)** (dernière release du dépôt) : choix de la langue, licence, dossier de destination (directement dans votre dossier utilisateur, `%UserProfile%`, par défaut - aucun droit administrateur requis), puis une case à cocher pour activer ou non le démarrage automatique avec Windows (clé de registre `Run`, cochée par défaut).
 
 Une fois les fichiers copiés, un écran dédié propose de lancer la configuration : elle guide la capture de la signature Copilot propre à la machine (voir plus haut), le choix du comportement de la touche, et l'activation ou non du remap des flèches. Vous pouvez la relancer à tout moment sans tout réinstaller, via le raccourci **Configurer Copilot Key+** ajouté au menu Démarrer.
 

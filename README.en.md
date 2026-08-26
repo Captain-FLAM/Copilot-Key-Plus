@@ -6,6 +6,8 @@
 
 As a bonus, it restores `Home` / `End` / `Page Up` / `Page Down` on laptops, freeing up access to the numeric keypad (digits).
 
+And it also works (in theory) with the latest PCs that use the dedicated `HID` key recommended by Microsoft.
+
 ### 🛡️ Antivirus false positives on VirusTotal (2 out of 69) ?
 
 > **That's normal**: it intercepts keyboard keystrokes... (🔒)
@@ -19,7 +21,7 @@ As a bonus, it restores `Home` / `End` / `Page Up` / `Page Down` on laptops, fre
 
 #### In the meantime, **67 others** (Kaspersky, Norton, McAfee, etc.) consider it **NOT** to be a virus !!
 
-[Virus Total ➡️](https://www.virustotal.com/gui/file/6ceaab5f6fe365a5f1b6785c02ce30e62d2ecaccbc5a26a235ed65e706d75faa)
+[Virus Total ➡️](https://www.virustotal.com/gui/file/91c82ec6a6c2960c631e42a9956adae7c625397764af196095ab4e6025cc924c)
 
 All the code is here, in this GitHub repository → Compile it yourself: **End of the debate!**
 
@@ -71,7 +73,7 @@ As a bonus, as long as the Copilot key is held down, the arrow keys turn into **
 
 **Copilot Key+** replaces that fumbling by driving the keyboard at software level, with no firmware ever needing to be modified: Copilot becomes the **MAGIC key** that was missing.
 
-### Want to know more? [Read the wiki](/Captain-FLAM/Copilot-Key-Plus/wiki)
+### Want to know more? [Read the wiki](https://github.com/Captain-FLAM/Copilot-Key-Plus/wiki)
 
 ---
 
@@ -91,7 +93,7 @@ So if your keyboard has been fighting you too, ever since someone, somewhere, de
 
 ## 📥 Installation
 
-Copilot Key+ is installed with 📥 **[`Copilot Key+ - Install.exe`](https://github.com/Captain-FLAM/Copilot-Key-Plus/releases/latest/download/Copilot%20Key%2B%20-%20Install.exe)** (latest release of the repo): choose your language, accept the license, pick a destination folder (directly inside your user folder, `%UserProfile%`, by default - no admin rights required), then tick (or untick) the box to launch automatically with Windows (`Run` registry key, checked by default).
+Copilot Key+ is installed with 📥 **[`Copilot_Key+_Install.exe`](https://github.com/Captain-FLAM/Copilot-Key-Plus/releases/latest/download/Copilot_Key+_Install.exe)** (latest release of the repo): choose your language, accept the license, pick a destination folder (directly inside your user folder, `%UserProfile%`, by default - no admin rights required), then tick (or untick) the box to launch automatically with Windows (`Run` registry key, checked by default).
 
 Once the files are copied, a dedicated screen offers to launch configuration: it walks you through capturing the Copilot signature specific to your machine (see above), choosing what the key should do, and enabling or disabling the arrow-key remap. You can rerun it at any time without reinstalling, via the **Configure Copilot Key+** shortcut added to the Start menu.
 

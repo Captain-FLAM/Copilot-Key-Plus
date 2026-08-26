@@ -39,7 +39,7 @@
 !define MyAppName "Copilot Key+"
 !define MyAppVersionFull "${MyAppVerMajor}.${MyAppVerMinor}.${MyAppVerBuild}.${MyAppVerRev}"
 !define MyAppExeName "Copilot_Key+.exe"
-!define MyAppInstallerName "${MyAppName} - Install.exe"
+!define MyAppInstallerName "Copilot_Key+_Install.exe"
 !define UninstKey "Software\Microsoft\Windows\CurrentVersion\Uninstall\CopilotKeyPlus"
 !define SettingsKey "Software\CopilotKey+"
 !define RunKey "Software\Microsoft\Windows\CurrentVersion\Run"
