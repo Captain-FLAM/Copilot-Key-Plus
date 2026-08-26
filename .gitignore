@@ -1,0 +1,39 @@
+# Build output (Visual Studio / MSVC)
+bin/
+obj/
+dist/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.idb
+*.tlog
+*.log
+*.iobj
+*.ipdb
+
+# Visual Studio user/solution files
+.vs/
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio resource editor cache
+*.aps
+
+# Local reference, not part of the project
+
+*.bak
+Copilot-Key+.code-workspace
+.claude/
+_Build_/
+Wiki/

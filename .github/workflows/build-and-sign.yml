@@ -1,0 +1,121 @@
+name: Build and sign
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build (Release|x64)
+        run: msbuild "CopilotKey+.sln" /p:Configuration=Release /p:Platform=x64 /m
+
+      - name: Upload unsigned exe
+        uses: actions/upload-artifact@v4
+        id: upload-unsigned-exe
+        with:
+          name: Copilot_Key+-unsigned
+          path: "Copilot_Key+.exe"
+
+      # --- SignPath (étape 1/2 : l'exécutable, avant qu'il soit empaqueté) ---
+      # Nécessite d'abord une candidature acceptée sur https://signpath.org/apply
+      # Une fois le projet approuvé, SignPath fournit dans son dashboard :
+      #   - organization-id
+      #   - project-slug
+      #   - signing-policy-slug (ex: "release-signing" ou "test-signing")
+      #   - artifact-configuration-slug
+      # et un jeton d'API à stocker comme secret GitHub : SIGNPATH_API_TOKEN
+      - name: Submit exe for signing
+        if: false # passer à `true` une fois la candidature SignPath approuvée et les slugs renseignés
+        uses: signpath/github-action-submit-signing-request@v1
+        with:
+          api-token: "${{ secrets.SIGNPATH_API_TOKEN }}"
+          organization-id: "TODO-organization-id"
+          project-slug: "TODO-project-slug"
+          signing-policy-slug: "release-signing"
+          artifact-configuration-slug: "TODO-exe-artifact-configuration-slug"
+          github-artifact-id: "${{ steps.upload-unsigned-exe.outputs.artifact-id }}"
+          wait-for-completion: true
+          output-artifact-directory: "signed-exe"
+
+      - name: Replace exe with signed version
+        if: false # même condition que ci-dessus
+        shell: pwsh
+        run: Copy-Item "signed-exe\Copilot_Key+.exe" "Copilot_Key+.exe" -Force
+
+      - name: Install NSIS
+        run: winget install --id NSIS.NSIS -e --source winget --accept-package-agreements --accept-source-agreements --disable-interactivity
+
+      - name: Build installer
+        shell: cmd
+        run: make-install.bat
+
+      - name: Upload unsigned installer
+        uses: actions/upload-artifact@v4
+        id: upload-unsigned-installer
+        with:
+          name: Copilot_Key+-Setup-unsigned
+          path: "dist\\Copilot Key+ - Install.exe"
+
+      # --- SignPath (étape 2/2 : l'installateur lui-même) ---
+      - name: Submit installer for signing
+        if: false # même condition que ci-dessus
+        uses: signpath/github-action-submit-signing-request@v1
+        with:
+          api-token: "${{ secrets.SIGNPATH_API_TOKEN }}"
+          organization-id: "TODO-organization-id"
+          project-slug: "TODO-project-slug"
+          signing-policy-slug: "release-signing"
+          artifact-configuration-slug: "TODO-installer-artifact-configuration-slug"
+          github-artifact-id: "${{ steps.upload-unsigned-installer.outputs.artifact-id }}"
+          wait-for-completion: true
+          output-artifact-directory: "signed-installer"
+
+      - name: Upload signed installer
+        if: false # même condition que ci-dessus
+        uses: actions/upload-artifact@v4
+        with:
+          name: Copilot_Key+-Setup-signed
+          path: "signed-installer\\Copilot Key+ - Install.exe"
+
+      # --- Publication de la Release GitHub (déclenchée par le tag "v*") ---
+      # Utilise l'installateur signé s'il existe (étape de signing ci-dessus activée),
+      # sinon retombe sur l'installateur non signé et le signale dans les notes de release.
+      - name: Determine installer artifact
+        if: startsWith(github.ref, 'refs/tags/v')
+        id: installer
+        shell: pwsh
+        run: |
+          $signedPath = "signed-installer\Copilot Key+ - Install.exe"
+          $unsignedPath = "dist\Copilot Key+ - Install.exe"
+          if (Test-Path $signedPath) {
+            "path=$signedPath" >> $env:GITHUB_OUTPUT
+            "" | Out-File -FilePath release-notes.md -Encoding utf8
+          } else {
+            "path=$unsignedPath" >> $env:GITHUB_OUTPUT
+            @(
+              "> [!WARNING]"
+              "> Cet installateur n'est **pas encore signe numeriquement** (signature SignPath non configuree pour le moment)."
+              "> This installer is **not digitally signed yet** (SignPath signing not configured yet)."
+            ) | Out-File -FilePath release-notes.md -Encoding utf8
+          }
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.installer.outputs.path }}
+          body_path: release-notes.md
+          generate_release_notes: true
+          fail_on_unmatched_files: true
