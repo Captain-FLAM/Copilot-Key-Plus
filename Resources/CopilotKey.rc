@@ -20,6 +20,11 @@ LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
 // remains consistent on all systems.
 101                     ICON                    "CopilotKey.ico"
 
+// Icone coeur embarquee pour le raccourci de don du menu Demarrer
+// (voir Resources\Install.nsi), reference via "Copilot_Key+.exe,-102"
+// (index negatif = ID de ressource exact, insensible a l'ordre de liaison).
+102                     ICON                    "Heart.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

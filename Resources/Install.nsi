@@ -44,6 +44,7 @@
 !define SettingsKey "Software\CopilotKey+"
 !define RunKey "Software\Microsoft\Windows\CurrentVersion\Run"
 !define RunValueName "CopilotKey+"
+!define DonateURL "https://ko-fi.com/captain_flam"
 
 !include "MUI2.nsh"
 !include "LogicLib.nsh"
@@ -113,6 +114,13 @@ LangString LnkQuit ${LANG_ENGLISH} "3 - Quit ${MyAppName}"
 LangString LnkUninstall ${LANG_FRENCH} "4 - Désinstaller ${MyAppName}"
 LangString LnkUninstall ${LANG_ENGLISH} "4 - Uninstall ${MyAppName}"
 
+; Nom du raccourci intentionnellement sans préfixe numérique : les chiffres
+; ("1 -", "2 -"...) des raccourcis ci-dessus trient avant les lettres dans
+; l'ordre alphabétique utilisé par l'Explorateur, donc celui-ci se retrouve
+; naturellement en dernier dans le groupe du menu Démarrer, en FR et en EN.
+LangString LnkDonate ${LANG_FRENCH} "Faites un don à ${MyAppName}"
+LangString LnkDonate ${LANG_ENGLISH} "Donate to ${MyAppName}"
+
 LangString SummaryPageTitle ${LANG_FRENCH} "Prêt à installer"
 LangString SummaryPageTitle ${LANG_ENGLISH} "Ready to Install"
 LangString SummaryPageSubtitle ${LANG_FRENCH} "Vérifiez vos choix avant de continuer."
@@ -173,6 +181,18 @@ Section "-Programme" SecMain
   CreateShortCut "$SMPROGRAMS\${MyAppName}\$(LnkQuit).lnk" "$INSTDIR\${MyAppExeName}" "-quit" "$INSTDIR\${MyAppExeName}"
   ; CreateShortCut "$SMPROGRAMS\${MyAppName}\$(LnkUninstall).lnk" "$INSTDIR\${MyAppInstallerName}" "" "$INSTDIR\${MyAppExeName}"
 
+  ; Raccourci de fin de liste vers la page de don (Ko-fi), sous forme de
+  ; "Internet Shortcut" (.url) plutôt que .lnk classique puisque la cible est
+  ; une URL et non un exécutable local. Icône coeur embarquée directement
+  ; dans ${MyAppExeName} (ressource ICON 102, voir CopilotKey.rc) plutôt que
+  ; livrée comme fichier .ico séparé : rien à copier ni à nettoyer à part
+  ; l'exe déjà présent. L'index "-102" (négatif) désigne l'ID de ressource
+  ; exact plutôt qu'une position ordinale dans la table d'icônes de l'exe,
+  ; donc robuste même si d'autres icônes sont ajoutées un jour.
+  WriteINIStr "$SMPROGRAMS\${MyAppName}\$(LnkDonate).url" "InternetShortcut" "URL" "${DonateURL}"
+  WriteINIStr "$SMPROGRAMS\${MyAppName}\$(LnkDonate).url" "InternetShortcut" "IconFile" "$INSTDIR\${MyAppExeName}"
+  WriteINIStr "$SMPROGRAMS\${MyAppName}\$(LnkDonate).url" "InternetShortcut" "IconIndex" "-102"
+
   ; Entrée Windows > Paramètres > Applications, pour pouvoir désinstaller
   ; sans passer par ce dossier à la main. Pointe vers la copie de
   ; l'installateur dans $INSTDIR (voir CopyFiles ci-dessus), relancée plus
@@ -230,6 +250,7 @@ Function RemoveInstallation
   Delete "$INSTDIR\${MyAppExeName}"
 
   Delete "$SMPROGRAMS\${MyAppName}\*.lnk"
+  Delete "$SMPROGRAMS\${MyAppName}\*.url"
   RMDir "$SMPROGRAMS\${MyAppName}"
   DeleteRegValue HKCU "${RunKey}" "${RunValueName}"
 

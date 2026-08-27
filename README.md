@@ -15,13 +15,13 @@ Et ça fonctionne aussi (en théorie) avec les derniers PC qui utilisent la touc
 | Antivirus | Faux positif | Description |
 | --- | --- | --- |
 | Microsoft | `Trojan:Win32/Wacatac.B!ml` | **Détection heuristique** par machine learning, déclenchée par le hook clavier bas niveau (comportement typique d'un keylogger, même légitime). |
-| Bkav Pro | `W32.Malware.E9A34DE9` | **Détection générique**, même cause : interception des touches au niveau système. |
+| Artic Wolf | `Unsafe` ?? | **Détection générique**, même cause : interception des touches au niveau système. |
 
 > **Microsoft**, comme par hasard ! Il n'aime pas qu'on touche à son système !! Surtout pour détourner la touche `Copilot` ! 😏
 
 #### En attendant **67 autres** (Kaspersky, Norton, McAfee, etc...) le considèrent comme n'étant **PAS** un virus !!
 
-[Virus Total ➡️](https://www.virustotal.com/gui/file/91c82ec6a6c2960c631e42a9956adae7c625397764af196095ab4e6025cc924c)
+[Virus Total ➡️](https://www.virustotal.com/gui/file/f6320438df7e82c384d50109932d8b8693dfc668c478e33ef2c89a2fed6b265e)
 
 Tout le code est ici, dans ce dépôt GitHub → Compilez-le vous-même : **Fin de polémique !**
 
@@ -37,6 +37,9 @@ Si ça vous a fait du bien, un petit don **(en cliquant sur la tasse)** ferait a
 
 Et si vous souhaitez mettre un commentaire sur votre satisfaction *(ça serait gentil)*, faites un don **même de 1 €** :  
 Sur Ko-Fi, par sécurité, seul les donateurs sont autorisés à laisser un commentaire. ❤️ 
+
+Sinon, il y a aussi un **[espace de discussions](https://github.com/Captain-FLAM/Copilot-Key-Plus/discussions)** ici-même...  
+Laissez-moi un petit commentaire, ça me fera plaisir.
 
 ---
 

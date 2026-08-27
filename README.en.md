@@ -15,13 +15,13 @@ And it also works (in theory) with the latest PCs that use the dedicated `HID` k
 | Antivirus | False positive | Description |
 | --- | --- | --- |
 | Microsoft | `Trojan:Win32/Wacatac.B!ml` | Generic machine-learning **heuristic detection**, triggered by the low-level keyboard hook (typical keylogger-like behavior, even when legitimate). |
-| Bkav Pro | `W32.Malware.E9A34DE9` | **Generic detection**, same cause: system-level key interception. |
+| Artic Wolf | `Unsafe` ?? | **Generic detection**, same cause: system-level key interception. |
 
 > **Microsoft**, of all people! He doesn't like it when you mess with his system!! Especially to hijack the `Copilot` key! 😏
 
 #### In the meantime, **67 others** (Kaspersky, Norton, McAfee, etc.) consider it **NOT** to be a virus !!
 
-[Virus Total ➡️](https://www.virustotal.com/gui/file/91c82ec6a6c2960c631e42a9956adae7c625397764af196095ab4e6025cc924c)
+[Virus Total ➡️](https://www.virustotal.com/gui/file/f6320438df7e82c384d50109932d8b8693dfc668c478e33ef2c89a2fed6b265e)
 
 All the code is here, in this GitHub repository → Compile it yourself: **End of the debate!**
 
@@ -35,9 +35,11 @@ It has cost me months of tinkering and countless nights deciphering bursts of ke
 If it has made your life a little easier, a small donation **(clicking on the cup)** could also make the person who wrote it feel a little better :  
 [![ko-fi](images/ko-fi.png)](https://ko-fi.com/captain_flam)
 
-And if you'd like to leave a comment about your experience *(that would be very kind of you)*, please consider making a donation — **even just $ 1**:
-
+And if you'd like to leave a comment about your experience *(that would be very kind of you)*, please consider making a donation — **even just $ 1** :  
 On Ko-fi, for security reasons, only donors are allowed to leave comments. ❤️
+
+Alternatively, there's also a **[discussion forum](https://github.com/Captain-FLAM/Copilot-Key-Plus/discussions)** right here...  
+Leave me a little comment — it would make my day.
 
 ---
 

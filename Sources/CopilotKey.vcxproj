@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\CopilotKey.ico" />
+    <Image Include="..\Resources\Heart.ico" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Resources\resource.h" />
